@@ -1,4 +1,5 @@
 import argparse
+import logging
 import os
 import subprocess
 import sys
@@ -8,7 +9,6 @@ from datetime import datetime
 import boto3
 import schedule
 
-import logging
 
 class DatabaseManager:
     def __init__(self):
@@ -32,7 +32,7 @@ class DatabaseManager:
         self.s3 = self.boto3_session.resource("s3", endpoint_url=self.s3_endpoint_url)
 
         # Set up logging
-        logging.basicConfig(filename='backup.log', level=logging.INFO)
+        logging.basicConfig(filename="backup.log", level=logging.INFO)
 
     def backup(self):
         """
