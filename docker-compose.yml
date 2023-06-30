@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  backup:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - db
